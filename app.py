@@ -13,5 +13,5 @@ def index():
 # e.g., @app.route('/calculate', methods=['POST'])
 
 if __name__ == '__main__':
-    # Binds to port 5000 for standard sandbox serving
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Local `python app.py` — Fly Sprites preview uses `bun run dev` → Flask on port 3000 (see package.json).
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', '3000')), debug=True)

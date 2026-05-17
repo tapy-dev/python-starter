@@ -17,11 +17,18 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
+Uses port **3000** by default (override with `PORT=5000 python app.py` if needed).
 
 Open your browser at:
 ```text
-http://127.0.0.1:5000
+http://127.0.0.1:3000
 ```
+
+---
+
+## Tapy / Fly Sprites
+
+Preview expects **`bun run dev`** and port **3000**. This repo includes **`package.json`** with a `dev` script that runs `pip install -r requirements.txt` and **`flask run --host 0.0.0.0 --port 3000`** (`FLASK_APP=app`). For FastAPI or other stacks, replace `scripts.dev` with your own command that listens on `0.0.0.0:3000`.
 
 ---
 
