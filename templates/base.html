@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>{% block title %}PyNexus Starter Canvas{% endblock %}</title>
+    
+    <!-- Premium Google Fonts & Style Utility Kit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+    <!-- Minimal Header with Theme Toggle -->
+    <header class="navbar">
+        <div class="container navbar-container">
+            <a href="{{ url_for('index') }}" class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>Canvas</span>
+            </a>
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn btn-icon" aria-label="Toggle Theme" title="Toggle Theme">
+                    <span>🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- App Content Canvas -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Global JS bootstrap -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

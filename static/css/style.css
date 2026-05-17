@@ -1,0 +1,322 @@
+/* ==========================================================================
+   PyNexus Premium Utility Styling System
+   ========================================================================== */
+
+:root {
+    /* Color Palette - HSL (Premium Indigo/Violet Theme) */
+    --hue: 250;
+    
+    /* Dark Theme Variables (Default) */
+    --bg-base: hsl(var(--hue), 24%, 6%);
+    --bg-surface: hsl(var(--hue), 20%, 10%);
+    --bg-surface-elevated: hsl(var(--hue), 16%, 15%);
+    --border-color: hsla(var(--hue), 20%, 25%, 0.4);
+    --border-color-glow: hsla(var(--hue), 80%, 65%, 0.15);
+    
+    --text-main: hsl(var(--hue), 20%, 95%);
+    --text-muted: hsl(var(--hue), 10%, 65%);
+    --text-subtle: hsl(var(--hue), 10%, 45%);
+    
+    --primary: hsl(var(--hue), 85%, 63%);
+    --primary-glow: hsla(var(--hue), 85%, 63%, 0.35);
+    --primary-hover: hsl(var(--hue), 90%, 68%);
+    
+    --secondary: hsl(320, 80%, 56%);
+    --secondary-glow: hsla(320, 80%, 56%, 0.3);
+    
+    --success: hsl(145, 80%, 45%);
+    --success-glow: hsla(145, 80%, 45%, 0.2);
+    --error: hsl(0, 85%, 60%);
+    
+    /* Glassmorphic values */
+    --glass-bg: hsla(var(--hue), 20%, 10%, 0.7);
+    --glass-border: hsla(0, 0%, 100%, 0.08);
+    --glass-blur: 16px;
+    
+    /* Radii & Fonts */
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 12px 24px -6px rgba(0, 0, 0, 0.7);
+    --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.8);
+    
+    --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Theme Variables overrides */
+[data-theme="light"] {
+    --bg-base: hsl(var(--hue), 20%, 97%);
+    --bg-surface: hsl(var(--hue), 15%, 100%);
+    --bg-surface-elevated: hsl(var(--hue), 15%, 94%);
+    --border-color: hsla(var(--hue), 20%, 75%, 0.3);
+    --border-color-glow: hsla(var(--hue), 85%, 60%, 0.08);
+    
+    --text-main: hsl(var(--hue), 25%, 12%);
+    --text-muted: hsl(var(--hue), 15%, 40%);
+    --text-subtle: hsl(var(--hue), 10%, 60%);
+    
+    --primary: hsl(var(--hue), 75%, 53%);
+    --primary-glow: hsla(var(--hue), 75%, 53%, 0.2);
+    --primary-hover: hsl(var(--hue), 80%, 45%);
+    
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: hsla(var(--hue), 20%, 75%, 0.25);
+    
+    --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 20px 32px -8px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color var(--transition-smooth), color var(--transition-smooth);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-surface-elevated);
+    border-radius: var(--radius-full);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* ==========================================================================
+   LAYOUT STRUCTURES
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+    padding: 16px 0;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+main {
+    flex: 1;
+    padding: 40px 0;
+}
+
+/* ==========================================================================
+   REUSABLE UI COMPONENTS
+   ========================================================================== */
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    border: none;
+    gap: 8px;
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), hsl(var(--hue), 85%, 55%));
+    color: white;
+    box-shadow: 0 4px 12px var(--primary-glow);
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-hover), hsl(var(--hue), 90%, 60%));
+    box-shadow: 0 6px 16px var(--primary-glow);
+}
+
+.btn-secondary {
+    background: var(--bg-surface-elevated);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.btn-icon {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+.btn-icon:hover {
+    background: var(--bg-surface-elevated);
+    color: var(--primary);
+}
+
+/* Cards */
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.card:hover {
+    border-color: var(--border-color-glow);
+    box-shadow: var(--shadow-md);
+}
+
+.card-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Utilities (Perfect for AI to structure calculators or dashboard grids) */
+.text-center { text-align: center; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; } /* Essential calculator layout */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--primary-glow);
+    color: var(--primary);
+}
+
+@media (max-width: 576px) {
+    .grid-4 { gap: 8px; }
+}
