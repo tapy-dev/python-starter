@@ -2,6 +2,6 @@
   "name": "tapy-python-starter",
   "private": true,
   "scripts": {
-    "dev": "bash -lc 'set -e; if [ -f requirements.txt ]; then python3 -m pip install -q -r requirements.txt; fi; export FLASK_APP=app; exec python3 -m flask run --host 0.0.0.0 --port 3000'"
+    "dev": "bash -lc 'set -e; if [ -f requirements.txt ]; then python3 -m pip install -q -r requirements.txt; fi; export FLASK_APP=app; exec python3 -m flask run --debug --host 0.0.0.0 --port 3000'"
   }
 }

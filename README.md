@@ -28,7 +28,7 @@ http://127.0.0.1:3000
 
 ## Tapy / Fly Sprites
 
-Preview expects **`bun run dev`** and port **3000**. This repo includes **`package.json`** with a `dev` script that runs `pip install -r requirements.txt` and **`flask run --host 0.0.0.0 --port 3000`** (`FLASK_APP=app`). For FastAPI or other stacks, replace `scripts.dev` with your own command that listens on `0.0.0.0:3000`.
+Preview expects **`bun run dev`** and port **3000**. This repo includes **`package.json`** with a `dev` script that runs `pip install -r requirements.txt` and **`flask run --debug --host 0.0.0.0 --port 3000`** (`FLASK_APP=app`) so template and Python changes reload without restarting the VM. If you created the project before `--debug` was added, bump `package.json` or reprovision the sandbox. For FastAPI or other stacks, replace `scripts.dev` with your own command that listens on `0.0.0.0:3000` and reloads on file changes.
 
 ---
 
